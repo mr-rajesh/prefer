@@ -83,6 +83,15 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => env('DB_MONGO_HOST'),
+            'port'     => env('DB_MONGO_PORT'),
+            'database' => env('DB_MONGO_DATABASE'),
+            
+            'use_mongo_id' => false,
+            
+        ],
 
     ],
 

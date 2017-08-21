@@ -34,3 +34,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     includeRouteFiles(__DIR__.'/Backend/');
 });
+
+Route::group(['namespace' => 'Frontend\Preferfirst', 'as' => 'preferfirst.'], function () {
+
+    Route::get('/', 'HomeController@index')->name('home');
+    
+});

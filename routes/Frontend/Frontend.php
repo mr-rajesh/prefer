@@ -4,7 +4,7 @@
  * Frontend Controllers
  * All route names are prefixed with 'frontend.'.
  */
-Route::get('/', 'FrontendController@index')->name('index');
+Route::get('/index', 'FrontendController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::post('contact/send', 'ContactController@send')->name('contact.send');
@@ -31,3 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
         Route::patch('profile/update', 'ProfileController@update')->name('profile.update');
     });
 });
+
+
+/*
+ * These frontend controllers require the user to be logged in
+ * All route names are prefixed with 'frontend.'
+ * Added for preferfirst by rajesh yadav
+ */
+
+    Route::group(['namespace' => 'Preferfirst', 'as' => 'preferfirst.'], function () {
+        /*
+        * Added by Rajesh yadav for post add form
+        */
+        Route::get('postadd', 'AdvertisementController@index')->name('postadd');
+    });
+
