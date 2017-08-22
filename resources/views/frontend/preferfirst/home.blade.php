@@ -32,7 +32,14 @@
             </ul>   
         </div>
         <div id="content">
+        @include('includes.partials.messages')
             <h2>Home</h2>
+        @foreach($category_detail as $category) 
+         
+         <p><a href="{{route('frontend.preferfirst.category-detail',[ 'id' => $category['name']])}}">{{$category['name']}}</a></p>
+
+        @endforeach
+
             <p>
                 This is my first webpage! I was able to code all the HTML and CSS in order to make it. Watch out world of web design here I come!
             </p>

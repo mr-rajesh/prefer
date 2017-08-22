@@ -31,27 +31,45 @@
         </div>
         <div id="content">
 
-<form>
-{{ Form::open(['route' => 'frontend.preferfirst.postadd', 'class' => 'form-horizontal','enctype'=>'multipart/form-data']) }}
+ @include('includes.partials.messages')
+{{ Form::open(['route' => 'frontend.preferfirst.postadd', 'method' => 'post', 'class' => 'form-horizontal','enctype'=>'multipart/form-data']) }}
 <ul class="form-style-1">
-    <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" />&nbsp;<input type="text" name="field2" class="field-divided" placeholder="Last" />
-    {{ Form::text('title', '',
-                            ['class' => 'field-divided', 'maxlength' => '191', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.title')]) }}
-
+    <li><label>Add Title <span class="required">*</span></label>
+    {{ Form::text('title', '',['class' => 'field-divided', 'maxlength' => '191', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.title')]) }}
     </li>
+
    <li>
         <label>Category <span class="required">*</span></label>
-        {{ Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...','class' => 'field-long'])}}
+        {{ Form::select('category', $category_detail, null, ['placeholder' => trans('prefer.postaddform.category'),'class' => 'field-select'])}}
+   </li>
 
-        
+    <li><label>Unquie Identity <span class="required">*</span></label>
+    {{ Form::textarea('identity', '', ['class' => 'field-long', 'maxlength' => '500', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.identity')]) }}
+
     </li>
 
+    <li><label>Add Photo <span class="required">*</span></label>
+    {{ Form::file('img1', '',['class' => 'field-divided', 'required' => 'required', 'autofocus' => 'autofocus']) }}
+    {{ Form::file('img2', '',['class' => 'field-divided', 'required' => 'required', 'autofocus' => 'autofocus']) }}
+    {{ Form::file('img3', '',['class' => 'field-divided', 'required' => 'required', 'autofocus' => 'autofocus']) }}
+    {{ Form::file('img4', '',['class' => 'field-divided', 'required' => 'required', 'autofocus' => 'autofocus']) }}
+    </li>
+    
+    <li><label>Name <span class="required">*</span></label>
+    {{ Form::text('name', '',['class' => 'field-divided', 'maxlength' => '191', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.name')]) }}
+    </li>
 
-    <li>
-        <label>Email <span class="required">*</span></label>
-        <input type="email" name="field3" class="field-long" />
+    <li><label>Phone <span class="required">*</span></label>
+    {{ Form::text('phone', '',['class' => 'field-divided', 'maxlength' => '10', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.phone')]) }}
+    </li>
+
+    <li><label>Enter a city <span class="required">*</span></label>
+    {{ Form::text('city', '',['class' => 'field-divided', 'maxlength' => '191', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.city')]) }}
     </li>
     <li>
+    {{ Form::submit('Submit', ['class' => '','id'=>'btnValidate'])}}
+    </li>
+    <!-- <li>
         <label>Subject</label>
         <select name="field4" class="field-select">
         <option value="Advertise">Advertise</option>
@@ -62,10 +80,8 @@
     <li>
         <label>Your Message <span class="required">*</span></label>
         <textarea name="field5" id="field5" class="field-long field-textarea"></textarea>
-    </li>
-    <li>
-        <input type="submit" value="Submit" />
-    </li>
+    </li> -->
+    
 </ul>
 {{ Form::close() }}
 

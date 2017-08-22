@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\Frontend\Preferfirst;
 
 use App\Http\Controllers\Controller;
+use App\Models\Preferfirst\Category;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use View;
+use App;
 
 /**
  * Class FrontendController.
@@ -14,7 +19,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.preferfirst.home');
+        $category_detail = Category::all();        
+        return View::make('frontend.preferfirst.home',compact('category_detail'));
     }
 
     /**
