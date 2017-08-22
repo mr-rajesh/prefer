@@ -32,8 +32,21 @@
         <div id="content">
 
 <form>
+{{ Form::open(['route' => 'frontend.preferfirst.postadd', 'class' => 'form-horizontal','enctype'=>'multipart/form-data']) }}
 <ul class="form-style-1">
-    <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" />&nbsp;<input type="text" name="field2" class="field-divided" placeholder="Last" /></li>
+    <li><label>Full Name <span class="required">*</span></label><input type="text" name="field1" class="field-divided" placeholder="First" />&nbsp;<input type="text" name="field2" class="field-divided" placeholder="Last" />
+    {{ Form::text('title', '',
+                            ['class' => 'field-divided', 'maxlength' => '191', 'required' => 'required', 'autofocus' => 'autofocus', 'placeholder' => trans('prefer.postaddform.title')]) }}
+
+    </li>
+   <li>
+        <label>Category <span class="required">*</span></label>
+        {{ Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...','class' => 'field-long'])}}
+
+        
+    </li>
+
+
     <li>
         <label>Email <span class="required">*</span></label>
         <input type="email" name="field3" class="field-long" />
@@ -54,7 +67,7 @@
         <input type="submit" value="Submit" />
     </li>
 </ul>
-</form>
+{{ Form::close() }}
 
 </div>
         <div id="footer">

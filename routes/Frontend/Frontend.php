@@ -44,5 +44,6 @@ Route::group(['middleware' => 'auth'], function () {
         * Added by Rajesh yadav for post add form
         */
         Route::get('postadd', 'AdvertisementController@index')->name('postadd');
+        Route::post('postadd', 'AdvertisementController@store')->name('postadd');
     });
 
