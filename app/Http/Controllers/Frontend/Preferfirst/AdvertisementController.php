@@ -91,7 +91,7 @@ class AdvertisementController extends Controller
         $add_detail->img4 = $img_4_name;
         $add_detail->save();
         return redirect()->route('preferfirst.home')->withFlashSuccess("successfully added");
-        dd($request);
+        
     }
 
     /**

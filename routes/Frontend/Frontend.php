@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
         */
         Route::get('postadd', 'AdvertisementController@index')->name('postadd');
         Route::post('postadd', 'AdvertisementController@store')->name('postadd');
-        Route::get('/category-detail/{id}', 'AdvertisementController@categoryDetail')->name('category-detail');
+        Route::get('/category-detail/{id}', 'CategoryDetailController@categoryDetail')->name('category-detail');
 
     });
 
