@@ -31,7 +31,7 @@ class UserTableController extends Controller
      * @return mixed
      */
     public function __invoke(ManageUserRequest $request)
-    {
+    {   
         return Datatables::of($this->users->getForDataTable($request->get('status'), $request->get('trashed')))
         ->escapeColumns(['first_name', 'last_name', 'email'])
         ->editColumn('confirmed', function ($user) {
@@ -55,7 +55,7 @@ class UserTableController extends Controller
                 return count($accounts) ? implode(' ', $accounts) : 'None';
             })
             ->addColumn('actions', function ($user) {
-                return $user->action_buttons;
+                return $user->action_buttons;                 
             })
             ->setRowClass(function ($user) {
                 return ! $user->isConfirmed() && config('access.users.requires_approval') ? 'danger' : '';

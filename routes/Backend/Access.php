@@ -15,6 +15,11 @@ Route::group([
     Route::group([
         'middleware' => 'access.routeNeedsRole:1',
     ], function () {
+        
+        Route::group(['namespace' => 'Category'], function () {
+        
+        Route::resource('category', 'CategoryController');
+    });
         Route::group(['namespace' => 'User'], function () {
             /*
              * For DataTables

@@ -10,4 +10,5 @@ Route::group([
      * Search Specific Functionality
      */
     Route::get('/', 'SearchController@index')->name('index');
+    
 });

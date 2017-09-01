@@ -36,6 +36,12 @@
                     <span>{{ trans('menus.backend.sidebar.dashboard') }}</span>
                 </a>
             </li>
+            <li class="{{ active_class(Active::checkUriPattern('admin/search/category')) }}">
+                <a href="{{ route('admin.access.category.index') }}">
+                    <i class="fa fa-dashboard"></i>
+                    <span>Category</span>
+                </a>
+            </li>
 
             <li class="header">{{ trans('menus.backend.sidebar.system') }}</li>
 
