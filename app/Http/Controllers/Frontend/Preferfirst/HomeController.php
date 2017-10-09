@@ -20,7 +20,8 @@ class HomeController extends Controller
     public function index()
     {
         $category_detail = Category::all();        
-        return View::make('frontend.preferfirst.home',compact('category_detail'));
+        //return View::make('frontend.preferfirst.home',compact('category_detail'));
+        return view('frontend.index');
     }
 
     /**
